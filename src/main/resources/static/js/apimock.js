@@ -26,7 +26,7 @@ var Apimock = (function () {
 		
 	return{
 		getBlueprintsByAuthor : function(nameAuthor, callback){
-			calllback(lista[nameAuthor]);
+			callback(lista[nameAuthor]);
 		} 
 	}
 }
