@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>blueprints_rest_api</name>
+<<<<<<< HEAD
 	<comment>Project ARSW-LAB6 created by Buildship.</comment>
+=======
+	<comment></comment>
+>>>>>>> 66b99b56857add9f19f53e47e8948299b119e02c
 	<projects>
 	</projects>
 	<buildSpec>
