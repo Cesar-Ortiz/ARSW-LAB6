@@ -1,22 +1,29 @@
-var Apimock = (function () {
+function normal3(){
 	
-	function actualizarBlueprints(authorName){
-		var listaN=lista.map(function(authorName){
-			this.authorName=authorName;
-			this.nameBlueprints=Blueprints.nameBlueprints;
-			this.points=Blueprints.points;
-		});
-		$("#tabla>tbody").append(
-		"<tr>
-			<td>${authorName}</td>
-			<td>${nameBlueprints}</td>
-			<td>${points}</td>
-		</tr>");
-	}
-		
-	return{
-		
-	}
 }
-)
-();
+
+function normal2(err,authorName){
+	
+	var listaN=authorName.map(variable => {
+				let vari ={name:variable.name, points:variable.points.length};
+				return vari;
+			});
+			
+			$("#tabla tbody").empty();
+			listaN.map(function(v){
+				$("#tabla tbody").append("<tr><td>" + v.name + "</td><td>" + v.points + "</td><td>" + v.points + "</td><input type='button' value='Open'></tr>");
+			});
+}
+
+	$(document).ready(function(){
+		
+		$("#button").click(function(){	
+			apimock.getBlueprintsByAuthor($("#authorId").val(), normal2);
+		})
+	});
+		
+	
+
+
+	
+
