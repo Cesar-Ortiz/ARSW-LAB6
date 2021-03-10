@@ -1,16 +1,17 @@
 
-
+var authors=null;
 function normal2(err,authorName){
-	
 	let listaN=authorName.map(variable => {
 		let vari ={name:variable.name, points:variable.points.length};
 		return vari;
 	});
+	
+	
 			
 	$("#tabla tbody").empty();
 	$("#tabla tbody").append("<tr><th>Blueprint name</th><th>Number of points</th><th>open</th></tr>");
 	listaN.map(function(v){
-		$("#tabla tbody").append("<tr id='name'><td>" + v.name + "</td><td id='points'>" + v.points + "</td><td><input type='button' class='btn btn-success btncalificar' value='Open'><td></tr>");
+		$("#tabla tbody").append("<tr id='" + v.name + "'><td>" + v.name + "</td><td id='points'>" + v.points + "</td><td><input type='button' onclick='dibujando(this)' class='btn btn-success btncalificar' value='Open'><td></tr>");
 	});
 	
 	function getSum(total, num) {
@@ -30,6 +31,7 @@ function normal2(err,authorName){
 function canvas(err, blueprint){
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
+	c.width=c.width;			
 	ctx.moveTo(blueprint.points[0].x,blueprint.points[0].y);
 	blueprint.points.map(function(i){
 		var c = document.getElementById("myCanvas");
@@ -38,13 +40,18 @@ function canvas(err, blueprint){
 		ctx.stroke();
 	});
 }
+
+
+	function dibujando(por){
+		let name=por.parentElement.parentElement.id;
+		apimock.getBlueprintsByNameAndAuthor(name,authors,canvas);
+	}
 	
-	$('#table').on('click', '.btncalificar', function(event) {
-		apimock.getBlueprintsByNameAndAuthor($("#name").val(), $("#authorId").val(), canvas);
-	});
 	
 	$(document).ready(function(){
-		$("#button").click(function(){	
+		$("#button").click(function(){
+			
+			authors=$("#authorId").val();
 			apimock.getBlueprintsByAuthor($("#authorId").val(), normal2);
 			
 		})
