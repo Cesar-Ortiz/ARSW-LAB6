@@ -56,7 +56,6 @@ var apimock = (function () {
 
     return {
         getBlueprintsByAuthor: function(author, callback) {
-			
             callback(null, mockdata[author]);
         },
 
@@ -70,6 +69,4 @@ var apimock = (function () {
 
 })();
 
-function hola(){
-	console.log("holla");
-}
+
