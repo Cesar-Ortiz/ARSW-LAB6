@@ -1,22 +1,20 @@
-var Apimock = (function () {
-	
-	function actualizarBlueprints(authorName){
-		var listaN=lista.map(function(authorName){
-			this.authorName=authorName;
-			this.nameBlueprints=Blueprints.nameBlueprints;
-			this.points=Blueprints.points;
-		});
-		$("#tabla>tbody").append(
-		"<tr>
-			<td>${authorName}</td>
-			<td>${nameBlueprints}</td>
-			<td>${points}</td>
-		</tr>");
-	}
+var app = (function () {
 		
 	return{
-		
+		function actualizarBlueprints(author){
+			var listaN=author.map(function(){
+				this.name=name;
+				this.points=points;
+			});
+			$("#tabla tbody").empty();
+			listaN.forEach(function(name, point){
+				$("#tabla tbody").append("<tr><td>${name}</td><td>${points}</td><td>${points}</td><input type='button' value='Open'></tr>");
+			});
+			
+		}
 	}
 }
 )
 ();
+
+getBlueprintsByAuthor("LexLuthor", actualizarBlueprints);
