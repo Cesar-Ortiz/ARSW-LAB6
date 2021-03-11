@@ -9,7 +9,7 @@ var apimock = (function () {
             points: [
                 {
                     x: 10,
-                    y: 20
+                    y: 10
                 },
                 {
                     x: 15,

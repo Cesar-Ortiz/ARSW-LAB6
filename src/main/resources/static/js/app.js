@@ -39,12 +39,15 @@ function canvas(err, blueprint){
 		ctx.lineTo(i.x,i.y);
 		ctx.stroke();
 	});
+		
 }
 
 
 	function dibujando(por){
 		let name=por.parentElement.parentElement.id;
+		document.getElementById("nameBluePrint").innerHTML = name;
 		apimock.getBlueprintsByNameAndAuthor(name,authors,canvas);
+		
 	}
 	
 	
