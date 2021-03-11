@@ -1,6 +1,8 @@
 
 var authors=null;
+var api = apiclient;
 function normal2(err,authorName){
+	
 	let listaN=authorName.map(variable => {
 		let vari ={name:variable.name, points:variable.points.length};
 		return vari;
@@ -46,8 +48,9 @@ function canvas(err, blueprint){
 	function dibujando(por){
 		let name=por.parentElement.parentElement.id;
 		document.getElementById("nameBluePrint").innerHTML = name;
-		apimock.getBlueprintsByNameAndAuthor(name,authors,canvas);
-		
+		apimock.getBlueprintsByNameAndAuthor(name,authors,canvas);	
+		//apimock.getBlueprintsByNameAndAuthor(name,authors,canvas);
+		api.getBlueprintsByNameAndAuthor(name,authors,canvas);
 	}
 	
 	
@@ -55,8 +58,8 @@ function canvas(err, blueprint){
 		$("#button").click(function(){
 			
 			authors=$("#authorId").val();
-			apimock.getBlueprintsByAuthor($("#authorId").val(), normal2);
-			
+			//apimock.getBlueprintsByAuthor($("#authorId").val(), normal2);
+			api.getBlueprintsByAuthor($("#authorId").val(), normal2);
 		})
 	});
 	
